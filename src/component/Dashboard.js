@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import House from './House';
+import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
     render(){
         return(
-            <div>
-            <button>Add Inventory</button>
-            </div>
+           <Link to='/wizard' className="Wizard">
+            <button>
+                Add New Property
+            </button>
+           </Link>
         )
     }
 }
