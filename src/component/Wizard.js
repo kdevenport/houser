@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class Wizard extends Component {
     render(){
         return(
-            <div>Wizard</div>
+            <div>
+                <button>Cancel</button>
+            </div>
         );
     }
 }

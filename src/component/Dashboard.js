@@ -4,7 +4,9 @@ import House from './House';
 class Dashboard extends Component {
     render(){
         return(
-            <div><House /></div>
+            <div>
+            <button>Add Inventory</button>
+            </div>
         )
     }
 }
