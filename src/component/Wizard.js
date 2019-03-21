@@ -13,29 +13,54 @@ class Wizard extends Component {
             zipcode: 0
         }
     }
+    handleNameChange = (event) => {
+        this.setState({
+            name: event.target.vaulue
+        })
+    }
+    handleAddressChange = (event) => {
+        this.setState({
+            address: event.target.value
+        })
+    }
+    handleCityChange = (event) => {
+        this.setState({
+            city: event.target.value
+        })
+    }
+    handleStateChange = (event) => {
+        this.setState({
+            state: event.target.value
+        })
+    }
+    handleZipCodeChange = (event) => {
+        this.setState({
+            zipcode: event.target.value
+        })
+    }
     render(){
         return(
             <div>
                 <form>
                     <label>
                         Name:
-                        <input type = "text" value={this.state.name}/>
+                        <input type = "text" onChange={(event) => this.handleNameChange(event)}/>
                     </label>
                     <label>
                         Address:
-                        <input type = "text" value={this.state.address}/>
+                        <input type = "text" onChange = {(event) => this.handleAddressChange(event)}/>
                     </label>
                     <label>
                         City:
-                        <input type = "text" value={this.state.city}/>
+                        <input type = "text" onChange = {(event) => this.handleCityChange(event)}/>
                     </label>
                     <label>
                         State:
-                        <input type = "text" value={this.state.state}/>
+                        <input type = "text" onChange = {(event) => this.handleStateChange(event)}/>
                     </label>
                     <label>
                         Zipcode:
-                        <input type = "text" value={this.state.zipcode}/>
+                        <input type = "text" onChange = {(event) => this.handleZipCodeChange(event)}/>
                     </label>
 
                 </form>
