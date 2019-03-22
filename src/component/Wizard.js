@@ -43,7 +43,7 @@ class Wizard extends Component {
             <div>
                 <form>
                     <label>
-                        Name:
+                        Property Name:
                         <input type = "text" onChange={(event) => this.handleNameChange(event)}/>
                     </label>
                     <label>
