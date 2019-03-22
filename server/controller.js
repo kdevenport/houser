@@ -6,5 +6,25 @@ module.exports = {
         }).catch(err =>{
             console.log('getHouses:',err)
         })
+    },
+    addHouse: (req, res) => {
+        const {name, address, city, state, zipcode} = req.body;
+        const db = req.app.get('db');
+
+        db.add_house({name, address, city, state, zipcode}).then(response => {
+            res.status(200).send('Added House')
+        }).catch(err => {
+            console.log('addHouse:', err);
+        })
+    },
+    deleteHouse: (req, res) => {
+        const db = req.app.get('db');
+        const {id} = req.params;
+
+        db.delete_house([id]).then(response => {
+            res.status(200).send('house is deleted');
+        }).catch(err => {
+            console.log('deleteHouse:', err);
+        })
     }
 }

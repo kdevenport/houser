@@ -15,8 +15,9 @@ massive(CONNECTION_STRING).then((dbInstance) =>{
 app.use(bodyParser.json());
 
 //Endpoints
-
 app.get('/api/houses', controller.getHouses);
+app.delete('/api/house/:id', controller.deleteHouse);
+app.post('/api/house', controller.addHouse);
 
 
 const PORT = process.env.SERVER_PORT || 4040;

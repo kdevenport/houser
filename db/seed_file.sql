@@ -5,4 +5,4 @@ CREATE TABLE houses (
     city VARCHAR(100),
     state_location VARCHAR(2),
     zipcode INTEGER
-)
+);

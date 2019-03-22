@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class Dashboard extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
         this.state = {
             houses:[]
@@ -21,17 +21,27 @@ class Dashboard extends Component {
             })
         })
     }
+    deleteHouse = (id) => {
+        const { getHouses } = this;
+
+        axios.delete(`/api/house/${id}`).then(response => {
+            getHouses();
+        })
+    }
     render(){
         const mappedHouses = this.state.houses.map((house, index) =>{
-            return <House />
+            return <House key = {house.id} house={house} deleteHouse={this.deleteHouse}/>
         })
         return(
-           <Link to='/wizard' className="Wizard">
-            <button>
-                Add New Property
-            </button>
-           </Link>
-        )
+            <div>
+                <Link to='/wizard' className="Wizard">
+                    <button>
+                        Add New Property
+                     </button>
+                </Link>
+           {mappedHouses}
+           </div>
+        );
     }
 }
 
