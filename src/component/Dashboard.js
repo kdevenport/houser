@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import House from './House';
+import Wizard1 from './Wizard1';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -35,7 +36,7 @@ class Dashboard extends Component {
         return(
             <div>
                 <div>Dashboard</div>
-                <Link to='/wizard' className="Wizard">
+                <Link to='/wizard/step1' component = { Wizard1 }>
                     <button>
                         Add New Property
                      </button>
