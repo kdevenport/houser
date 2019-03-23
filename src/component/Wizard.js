@@ -16,7 +16,7 @@ class Wizard extends Component {
     }
     handleNameChange = (event) => {
         this.setState({
-            name: event.target.vaulue
+            name: event.target.value
         })
     }
     handleAddressChange = (event) => {

@@ -14,6 +14,7 @@ module.exports = {
         db.add_house({name, address, city, state, zipcode}).then(response => {
             res.status(200).send('Added House')
         }).catch(err => {
+            res.status(500).send({ message: 'errored!' });
             console.log('addHouse:', err);
         })
     },

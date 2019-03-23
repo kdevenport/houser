@@ -6,7 +6,7 @@ require('dotenv').config();
 const controller = require('./controller');
 
 const app = express();
-massive(CONNECTION_STRING).then((dbInstance) =>{
+massive(process.env.CONNECTION_STRING).then((dbInstance) =>{
     app.set('db', dbInstance);
 }).catch((error) =>{
     console.log(error);
