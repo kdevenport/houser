@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Wizard1 from './Wizard1';
+import Wizard3 from './Wizard3';
 import axios from 'axios';
 
 class Wizard2 extends Component{
