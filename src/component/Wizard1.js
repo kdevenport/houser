@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import Wizard2 from './Wizard2';
+import { connect } from 'react-redux';
+
+import {updatePropertyName, updateStreetAddress, updateCity,updateState, updateZipcode} from '../ducks/reducer';
 
 class Wizard1 extends Component {
     constructor(){
         super();
 
         this.state = {
-            name: '',
-            address: '',
+            property_name: '',
+            street_address: '',
             city: '',
-            state: '',
+            state_location: '',
             zipcode: 0
         }
     }
     handleNameChange = (event) => {
         this.setState({
-            name: event.target.value
+            property_name: event.target.value
         })
     }
     handleAddressChange = (event) => {
         this.setState({
-            address: event.target.value
+            street_address: event.target.value
         })
     }
     handleCityChange = (event) => {
@@ -32,7 +34,7 @@ class Wizard1 extends Component {
     }
     handleStateChange = (event) => {
         this.setState({
-            state: event.target.value
+            state_location: event.target.value
         })
     }
     handleZipCodeChange = (event) => {
@@ -76,4 +78,15 @@ class Wizard1 extends Component {
     }
 }
 
-export default Wizard1;
+function mapStateToProps(initialState) {
+    const {property_name, street_address, city, state_location, zipcode} = initialState;
+    return {
+        property_name,
+        street_address,
+        city,
+        state_location,
+        zipcode
+    }
+}
+
+export default connect(mapStateToProps, {updatePropertyName, updateStreetAddress, updateCity, updateState,updateZipcode})(Wizard1);

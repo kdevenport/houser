@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Wizard1 from './Wizard1';
 import Wizard3 from './Wizard3';
-import axios from 'axios';
+
+import {updateImg} from '../ducks/reducer';
+
 
 class Wizard2 extends Component{
     constructor(){
         super();
 
         this.state = {
-            imgURL: ''
+            img: ''
         }
     }
     handleImgUpdate = (event) => {
         this.setState({
-            imgURL: event.target.value
+            img: event.target.value
         })
     }
     render(){
@@ -42,4 +45,11 @@ class Wizard2 extends Component{
     }
 }
 
-export default Wizard2;
+function mapStateToProps(initialState) {
+    const{img} = initialState;
+    return{
+        img
+    }
+}
+
+export default connect (mapStateToProps, {updateImg})(Wizard2);

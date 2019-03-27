@@ -36,7 +36,7 @@ class Dashboard extends Component {
         return(
             <div>
                 <div>Dashboard</div>
-                <Link to='/wizard/step1' component = { Wizard1 }>
+                <Link to='/wizard' component = { Wizard1 }>
                     <button>
                         Add New Property
                      </button>

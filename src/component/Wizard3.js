@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Wizard2 from './Wizard2';
 import axios from 'axios';
+
+import {updateMortgage, updateRent} from '../ducks/reducer';
 
 class Wizard3 extends Component{
     constructor(){
@@ -47,11 +50,11 @@ class Wizard3 extends Component{
                 <h4>Recommended Rent: $0</h4>
                 <label>
                     Monthly Mortgage Amount
-                    <input type = "number" onChange={(event) => this.handleMortgageChange(event)}/>
+                    <input type = "text" onChange={(event) => this.handleMortgageChange(event)}/>
                 </label>
                 <label>
                     Desired Monthly rent
-                    <input type = "number" onChange = {(event) => this.handleRentChange(event)}/>
+                    <input type = "text" onChange = {(event) => this.handleRentChange(event)}/>
                 </label>
                 <Link to= "/wizard/step2" component = {Wizard2}>
                         <button>
@@ -65,5 +68,13 @@ class Wizard3 extends Component{
         )
     }
 }
+
+function mapStateToProps(initalState){
+    const {mortgage, rent} = initalState;
+    return{
+        mortgage,
+        rent
+    }
+}
    
-export default Wizard3;
+export default connect (mapStateToProps, {updateMortgage, updateRent})(Wizard3);
