@@ -1,12 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const massive = require('massive');
-require('dotenv').config();
+require('dotenv').config({path: path.join(__dirname, ".env")});
 
 const controller = require('./controller');
 
 const app = express();
-massive(process.env.CONNECTION_STRING).then((dbInstance) =>{
+massive(CONNECTION_STRING, {scripts: __dirname + "/db"})
+.then((dbInstance) =>{
     app.set('db', dbInstance);
 }).catch((error) =>{
     console.log(error);

@@ -4,6 +4,8 @@ import Wizard1 from './Wizard1';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import './Dashboard.css';
+
 class Dashboard extends Component {
     constructor(props){
         super(props);
@@ -34,14 +36,18 @@ class Dashboard extends Component {
             return <House key = {house.id} house={house} deleteHouse={this.deleteHouse}/>
         })
         return(
-            <div>
-                <div>Dashboard</div>
-                <Link to='/wizard' component = { Wizard1 }>
-                    <button>
-                        Add New Property
-                     </button>
-                </Link>
-           {mappedHouses}
+            <div className="Dashboard">
+                <div className="sub">
+                    <h2 className="dash-heading">Dashboard</h2>
+                    <Link to='/wizard/step1' component = { Wizard1 }>
+                        <button className="dashboard_button">
+                            Add New Property
+                        </button>
+                    </Link>
+                </div>
+                <div className="listed_houses">
+                <h3 className="listed_houses_header">Home Listings</h3>
+                {mappedHouses}</div>
            </div>
         );
     }

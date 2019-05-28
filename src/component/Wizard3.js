@@ -26,15 +26,15 @@ class Wizard3 extends Component{
         })
     }
     addHouse = () => {
-        const { name, address, city, state, zipcode, imgURL, mortgage, rent} = this.state;
+        const { property_name, street_address, city, state_location, zipcode, img, mortgage, rent} = this.state;
     
         const house = {
-            name: name,
-            address: address,
+            property_name: property_name,
+            street_address: street_address,
             city: city,
-            state: state,
+            state_location: state_location,
             zipcode: zipcode,
-            imgURL: imgURL,
+            img: img,
             mortgage: mortgage,
             rent: rent
         }

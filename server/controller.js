@@ -8,10 +8,10 @@ module.exports = {
         })
     },
     addHouse: (req, res) => {
-        const {name, address, city, state, zipcode} = req.body;
+        const {name, address, city, state, zipcode, img, mortgage, rent} = req.body;
         const db = req.app.get('db');
 
-        db.add_house({name, address, city, state, zipcode}).then(response => {
+        db.add_house([name, address, city, state, zipcode, img, mortgage, rent]).then(res => {
             res.status(200).send('Added House')
         }).catch(err => {
             res.status(500).send({ message: 'errored!' });

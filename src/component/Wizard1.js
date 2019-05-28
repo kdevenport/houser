@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 import {updatePropertyName, updateStreetAddress, updateCity,updateState, updateZipcode} from '../ducks/reducer';
 
 class Wizard1 extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
 
         this.state = {
             property_name: '',
@@ -79,13 +79,16 @@ class Wizard1 extends Component {
 }
 
 function mapStateToProps(initialState) {
-    const {property_name, street_address, city, state_location, zipcode} = initialState;
+    const {property_name, street_address, city, state_location, zipcode, img, mortgage, rent} = initialState;
     return {
         property_name,
         street_address,
         city,
         state_location,
-        zipcode
+        zipcode,
+        img,
+        mortgage,
+        rent
     }
 }
 
